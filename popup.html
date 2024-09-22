@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Clipboard & Note Box</title>
+</head>
+<body>
+  <h1>Clipboard & Note Box</h1>
+
+  <div class="clipboard-section">
+    <h2>Clipboard</h2>
+    <textarea id="clipboard-content" placeholder="Copied text will appear here..."></textarea>
+    <button id="copy-btn">Copy to Clipboard</button>
+  </div>
+
+  <div class="note-section">
+    <h2>Notes</h2>
+    <textarea id="note-content" placeholder="Write your notes here..."></textarea>
+    <button id="save-txt-btn">Save as TXT</button>
+    <button id="save-pdf-btn">Save as PDF</button>
+    <button id="save-doc-btn">Save as DOC</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
