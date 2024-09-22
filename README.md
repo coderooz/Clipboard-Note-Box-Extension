@@ -12,8 +12,6 @@ This is a Chrome extension that enhances your clipboard experience with two key 
 - **Note-taking Editor**: A rich-text area to write and edit notes or copied text, allowing you to save the contents.
 - **Save as Multiple Formats**: Save notes or clipboard content as `.txt` (default), `.pdf`, or `.doc` using the built-in dropdown selector.
   
-## Screenshots
-<img src="assets/screenshot.png" alt="Clipboard & Note Box Extension Screenshot" width="500" />
 
 ## How It Works
 
@@ -26,7 +24,7 @@ This is a Chrome extension that enhances your clipboard experience with two key 
 ### Step 1: Download the Extension
 1. Download the project files from this repository or clone the project:
    ```bash
-   git clone https://github.com/your-github-repo/clipboard-note-box-extension.git
+   git clone https://github.com/coderooz/Clipboard-Note-Box-Extension.git
    ```
 
 ### Step 2: Load Unpacked Extension
