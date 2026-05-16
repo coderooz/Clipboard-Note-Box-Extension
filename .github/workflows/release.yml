@@ -1,0 +1,70 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> "$GITHUB_OUTPUT"
+
+      - name: Validate manifest version matches tag
+        run: |
+          MANIFEST_VERSION=$(node -p "require('./manifest.json').version")
+          TAG_VERSION="${{ steps.get_version.outputs.VERSION }}"
+          if [ "$MANIFEST_VERSION" != "$TAG_VERSION" ]; then
+            echo "Error: Manifest version ($MANIFEST_VERSION) does not match tag ($TAG_VERSION)"
+            exit 1
+          fi
+          echo "Versions match: $TAG_VERSION"
+
+      - name: Create extension ZIP
+        run: |
+          zip -r clipboard-note-box-v${{ steps.get_version.outputs.VERSION }}.zip \
+            background.js \
+            popup.html \
+            popup.js \
+            style.css \
+            manifest.json \
+            icons/ \
+            -x "*.zip"
+
+      - name: Generate release notes
+        id: release_notes
+        run: |
+          echo "NOTES<<EOF" >> "$GITHUB_OUTPUT"
+          echo "## Clipboard & Note Box v${{ steps.get_version.outputs.VERSION }}" >> "$GITHUB_OUTPUT"
+          echo "" >> "$GITHUB_OUTPUT"
+          echo "### Changes" >> "$GITHUB_OUTPUT"
+          git log $(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)..HEAD --pretty=format:"- %s" >> "$GITHUB_OUTPUT" 2>/dev/null || echo "- Initial release" >> "$GITHUB_OUTPUT"
+          echo "" >> "$GITHUB_OUTPUT"
+          echo "### Installation" >> "$GITHUB_OUTPUT"
+          echo "1. Download the ZIP file below" >> "$GITHUB_OUTPUT"
+          echo "2. Extract to a folder" >> "$GITHUB_OUTPUT"
+          echo "3. Load unpacked in chrome://extensions/" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "v${{ steps.get_version.outputs.VERSION }}"
+          body: ${{ steps.release_notes.outputs.NOTES }}
+          files: clipboard-note-box-v${{ steps.get_version.outputs.VERSION }}.zip
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

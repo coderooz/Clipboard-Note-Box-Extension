@@ -1,0 +1,45 @@
+{
+  "name": "clipboard-note-box",
+  "version": "1.0.0",
+  "description": "Copy and edit clipboard content, write and save notes in .txt, .pdf, or .doc formats.",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint background.js popup.js",
+    "lint:fix": "eslint background.js popup.js --fix",
+    "format": "prettier --write \"**/*.{js,css,html,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,css,html,json,md}\"",
+    "validate:manifest": "node -e \"const m=require('./manifest.json'); if(m.manifest_version!==3){console.error('MV3 required');process.exit(1)} console.log('Manifest valid')\"",
+    "check:all": "npm run lint && npm run format:check && npm run validate:manifest",
+    "pack": "node scripts/pack.js",
+    "prepare": "husky || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderooz/clipboard-note-box.git"
+  },
+  "keywords": [
+    "chrome-extension",
+    "clipboard",
+    "notes",
+    "productivity",
+    "manifest-v3"
+  ],
+  "author": {
+    "name": "Ranit Saha",
+    "url": "https://coderooz.in"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coderooz/clipboard-note-box/issues"
+  },
+  "homepage": "https://github.com/coderooz/clipboard-note-box#readme",
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0"
+  },
+  "lint-staged": {
+    "*.{js,css,html,json,md}": "prettier --write"
+  }
+}

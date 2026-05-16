@@ -1,0 +1,48 @@
+name: Labeler
+
+on:
+  - pull_request_target
+  - issues
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  labeler:
+    name: Auto-label PRs and Issues
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Label Pull Requests
+        if: github.event_name == 'pull_request_target'
+        uses: actions/labeler@v5
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          sync-labels: true
+
+      - name: Label Issues by Template
+        if: github.event_name == 'issues'
+        run: |
+          ISSUE_BODY="${{ github.event.issue.body }}"
+          ISSUE_NUMBER="${{ github.event.issue.number }}"
+          TOKEN="${{ secrets.GITHUB_TOKEN }}"
+
+          if echo "$ISSUE_BODY" | grep -q "Describe the bug"; then
+            curl -s -X POST \
+              -H "Authorization: token $TOKEN" \
+              -H "Accept: application/vnd.github.v3+json" \
+              "https://api.github.com/repos/${{ github.repository }}/issues/$ISSUE_NUMBER/labels" \
+              -d '{"labels":["bug"]}'
+          fi
+
+          if echo "$ISSUE_BODY" | grep -q "Describe the solution"; then
+            curl -s -X POST \
+              -H "Authorization: token $TOKEN" \
+              -H "Accept: application/vnd.github.v3+json" \
+              "https://api.github.com/repos/${{ github.repository }}/issues/$ISSUE_NUMBER/labels" \
+              -d '{"labels":["enhancement"]}'
+          fi

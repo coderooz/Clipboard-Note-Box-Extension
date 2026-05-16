@@ -1,0 +1,22 @@
+# CODEOWNERS
+# Owners for the Clipboard & Note Box repository
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything in the repo
+* @coderooz
+
+# Core extension files
+/background.js @coderooz
+/popup.html @coderooz
+/popup.js @coderooz
+/style.css @coderooz
+/manifest.json @coderooz
+
+# Icons
+/icons/ @coderooz
+
+# GitHub configuration
+/.github/ @coderooz
+
+# Documentation
+*.md @coderooz

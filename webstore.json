@@ -1,0 +1,16 @@
+{
+  "name": "clipboard-note-box",
+  "displayName": "Clipboard & Note Box",
+  "version": "1.0.0",
+  "description": "Copy and edit clipboard content, write and save notes in .txt, .pdf, or .doc formats.",
+  "author": "Ranit Saha (Coderooz)",
+  "license": "MIT",
+  "repository": "https://github.com/coderooz/clipboard-note-box",
+  "homepage": "https://coderooz.in",
+  "categories": ["productivity", "accessibility"],
+  "short_description": "Quick clipboard management and note-taking from your browser toolbar",
+  "detailed_description": "Clipboard & Note Box is a lightweight Chrome extension that lets you view, edit, and copy clipboard content directly from your browser toolbar. Write notes and export them in multiple formats including TXT, PDF, and DOC. All data stays local on your device - no cloud sync or telemetry.",
+  "screenshots": [],
+  "languages": ["en"],
+  "regions": ["all"]
+}

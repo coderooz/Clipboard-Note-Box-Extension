@@ -1,0 +1,127 @@
+[
+  {
+    "name": "bug",
+    "color": "d73a4a",
+    "description": "Something isn't working"
+  },
+  {
+    "name": "enhancement",
+    "color": "a2eeef",
+    "description": "New feature or request"
+  },
+  {
+    "name": "documentation",
+    "color": "0075ca",
+    "description": "Improvements or additions to documentation"
+  },
+  {
+    "name": "triage",
+    "color": "f9d0c4",
+    "description": "Needs triage by maintainers"
+  },
+  {
+    "name": "good first issue",
+    "color": "7057ff",
+    "description": "Good for newcomers"
+  },
+  {
+    "name": "help wanted",
+    "color": "008672",
+    "description": "Extra attention is needed"
+  },
+  {
+    "name": "question",
+    "color": "d876e3",
+    "description": "Further information is requested"
+  },
+  {
+    "name": "wontfix",
+    "color": "ffffff",
+    "description": "This will not be worked on"
+  },
+  {
+    "name": "duplicate",
+    "color": "cfd3d7",
+    "description": "This issue or pull request already exists"
+  },
+  {
+    "name": "invalid",
+    "color": "e4e669",
+    "description": "This doesn't seem right"
+  },
+  {
+    "name": "stale",
+    "color": "ededed",
+    "description": "No recent activity"
+  },
+  {
+    "name": "closed-stale",
+    "color": "ededed",
+    "description": "Closed due to inactivity"
+  },
+  {
+    "name": "pinned",
+    "color": "2563eb",
+    "description": "Pinned issue - important"
+  },
+  {
+    "name": "security",
+    "color": "b60205",
+    "description": "Security-related issue or fix"
+  },
+  {
+    "name": "in-progress",
+    "color": "fbca04",
+    "description": "Currently being worked on"
+  },
+  {
+    "name": "blocked",
+    "color": "e11d21",
+    "description": "Blocked by another issue or dependency"
+  },
+  {
+    "name": "needs-info",
+    "color": "fef2c0",
+    "description": "Needs more information from author"
+  },
+  {
+    "name": "ui",
+    "color": "5319e7",
+    "description": "Related to user interface"
+  },
+  {
+    "name": "performance",
+    "color": "0e8a16",
+    "description": "Performance improvements"
+  },
+  {
+    "name": "refactor",
+    "color": "1d76db",
+    "description": "Code refactoring"
+  },
+  {
+    "name": "testing",
+    "color": "c2e0c6",
+    "description": "Related to testing"
+  },
+  {
+    "name": "ci-cd",
+    "color": "0052cc",
+    "description": "Continuous integration / deployment"
+  },
+  {
+    "name": "dependencies",
+    "color": "0366d6",
+    "description": "Pull requests that update a dependency file"
+  },
+  {
+    "name": "chrome-web-store",
+    "color": "4285f4",
+    "description": "Related to Chrome Web Store publication"
+  },
+  {
+    "name": "firefox",
+    "color": "ff9500",
+    "description": "Firefox compatibility"
+  }
+]

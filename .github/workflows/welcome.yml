@@ -1,0 +1,58 @@
+name: Welcome New Contributors
+
+on:
+  issues:
+    types: [opened]
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  welcome:
+    name: Welcome Message
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome new contributor
+        uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: |
+            Welcome to Clipboard & Note Box, @${{ github.actor }}! :wave:
+
+            Thank you for opening your first issue. We appreciate your help in making this extension better!
+
+            **What happens next:**
+            - A maintainer will review your issue within a few days
+            - You may be asked for additional details or clarification
+            - Once triaged, the issue will be labeled appropriately
+
+            **Resources:**
+            - [Contributing Guide](../CONTRIBUTING.md)
+            - [Code of Conduct](../CODE_OF_CONDUCT.md)
+            - [Support](../SUPPORT.md)
+
+            If you have any questions, feel free to ask!
+          pr-message: |
+            Welcome to Clipboard & Note Box, @${{ github.actor }}! :wave:
+
+            Thank you for your first pull request! We're excited to review your contribution.
+
+            **What happens next:**
+            - A maintainer will review your PR
+            - Automated checks will run (manifest validation, linting, etc.)
+            - You may receive feedback or requested changes
+
+            **PR Checklist:**
+            - [ ] PR description explains the changes
+            - [ ] Related issues are linked
+            - [ ] Changes have been tested locally
+            - [ ] CHANGELOG.md is updated (if applicable)
+
+            **Resources:**
+            - [Contributing Guide](../CONTRIBUTING.md)
+            - [Pull Request Template](../.github/PULL_REQUEST_TEMPLATE.md)
+
+            Thank you for contributing!

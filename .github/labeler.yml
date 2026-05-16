@@ -1,0 +1,48 @@
+# Configuration for auto-labeling pull requests
+# https://github.com/actions/labeler
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "*.md"
+          - "docs/**/*"
+
+ci-cd:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/**/*"
+          - ".github/labeler.yml"
+
+icons:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "icons/**/*"
+
+popup:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "popup.html"
+          - "popup.js"
+
+styles:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "style.css"
+
+background:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "background.js"
+
+manifest:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "manifest.json"
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "package.json"
+          - "package-lock.json"
+          - "pnpm-lock.yaml"
+          - "yarn.lock"
